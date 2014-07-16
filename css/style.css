@@ -4,7 +4,14 @@
 
 body {
     margin: 0px auto;
-    background-color:#222;
+    background-color:#262c38;
+    
+}
+
+html, body {
+	width: 320px;
+    height: 320px;
+    position: relative;
 }
 
 .contents {
@@ -15,9 +22,81 @@ body {
 	height:320px;
 }
 
+.logo {
+	background: url('../img/logo.png') no-repeat;
+	width: 320px;
+	height: 320px;
+	position: absolute;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+}
 
-.content_text {
+.content {
 	font-weight:bold;
-	font-size:5em;
+	font-size:2em;
 	color:#fff;
+}
+.camera {
+	width: 320px;
+	height: 320px;
+	background: #ddd;
+	background: url('../img/watch.png') no-repeat;
+}
+
+.menu-bar {
+	background: #00ADEF;
+	height: 60px;
+	width: 320px;
+	position: absolute;
+	bottom: 0;
+}
+
+/*.logo {
+	display: none;
+}*/
+
+
+a.btn {
+	height: 60px;
+	width: 60px;
+	text-decoration: none;
+	position: absolute;
+	top: 0;
+	padding: 0;
+	margin: 0;
+}
+
+a.btn.left {
+	left: 0;
+	width: 80px;
+	background: url('../img/back.png') no-repeat center;
+}
+
+a.btn.center {
+	left: 110px;
+	width: 100px;
+	background: url('../img/capture.png') no-repeat center;
+}
+
+a.btn.right {
+	right: 0;
+	width: 80px;
+	background: url('../img/setting.png') no-repeat center;
+}
+
+a.btn-home {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	margin: 20px;
+}
+
+a.btn-camera {
+	background: url('../img/logo.png') no-repeat center;
+	background-size: cover;
+}
+
+a.btn-gallery {
+	background: url('../img/gallery.png') no-repeat center;	
 }
