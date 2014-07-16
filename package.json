@@ -1,0 +1,6 @@
+{
+  "name": "ReSelf",
+  "dependencies": {
+    "gulp-util": "~2.2.20"
+  }
+}
