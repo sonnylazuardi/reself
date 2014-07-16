@@ -1,19 +1,13 @@
 <div class="settings">
 	<div class="block">
-		<select id="delay-value">
-			<option value="10" selected>10</option>
-			<option value="5">5</option>
-			<option value="2">2</option>
+		<select id="delay-value" data-name="delay" ng-model="delay" ng-options="delay for delay in delays">
 		</select>
 		<div>
 			delay
 		</div>
 	</div>
 	<div class="block">
-		<select id="delay-value">
-			<option value="0" selected>0</option>
-			<option value="2">2</option>
-			<option value="5">5</option>
+		<select id="burst-value" data-name="burst" ng-model="burst" ng-options="burst for burst in bursts">
 		</select>
 		<div>
 			burst
@@ -26,7 +20,8 @@
 		</div>
 	</div>
 	<div class="block">
-		<a href="#" class="btn-flash"></a>
+		<select id="flash-value" data-name="block" ng-model="flash" ng-options="flash.id as flash.name for flash in flashes">
+		</select>
 		<div>
 			flash
 		</div>
