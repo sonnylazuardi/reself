@@ -71,7 +71,14 @@ Popup Toast
 	width: 320px;
 	height: 320px;
 	background: #ddd;
-	background: url('../img/watch.png') no-repeat;
+	overflow: hidden;
+	/*background: url('../img/watch.png') no-repeat;*/
+}
+.camera img {
+	width: 320px;
+	height: 320px;
+	padding: 0;
+	margin: 0;
 }
 
 .menu-bar {

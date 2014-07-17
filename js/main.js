@@ -84,6 +84,7 @@ reselfApp.controller('CameraCtrl', function($scope) {
             };
             sapRequest(reqData, function(respData) {
                 console.log(respData);
+                angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
             }, function(err) {
                 console.log('Failed to get list.');
             });
