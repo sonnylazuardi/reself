@@ -71,7 +71,14 @@ Popup Toast
 	width: 320px;
 	height: 320px;
 	background: #ddd;
-	background: url('../img/watch.png') no-repeat;
+	overflow: hidden;
+	/*background: url('../img/watch.png') no-repeat;*/
+}
+.camera img {
+	width: 320px;
+	height: 320px;
+	padding: 0;
+	margin: 0;
 }
 
 .menu-bar {
@@ -101,6 +108,12 @@ a.btn.left {
 	left: 0;
 	width: 100px;
 	background: url('../img/back.png') no-repeat center;
+}
+a.btn.btn-loadmore {
+	right: 0;
+	width: 100px;
+	height: 50px;
+	padding: 30px;
 }
 
 a.btn.center {
@@ -208,4 +221,16 @@ a.btn-flash {
 	height: 50px;
 	font-weight: bolder;
 	font-size: 1.15em;
+}
+
+#timer {
+	display: none;
+	font-size: 2.5em;
+	position: absolute;
+	pointer-events:none;
+	top: 0;
+	left: 0;
+	width: 320px;
+	text-align: center;
+	padding-top: 80px;
 }

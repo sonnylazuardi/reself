@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>FN7JuK8LwMIT79Ni3DpxtXfV4SZnbP6edoYnEsWXQQY=</DigestValue>
+<DigestValue>AtmUfMzznFtOu78BI8GULZmgyO4QUyWUXr0A7bjLW9A=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -12,7 +12,7 @@
 </Reference>
 <Reference URI="css/style.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>BA9vnkgDQ1A9VIdr5FWeiKGLPmrWeec7V2UsFPTXci4=</DigestValue>
+<DigestValue>Md5WW1/qsXLcCvxUF4f4duiN8gClnrBMwig+pXMIiXk=</DigestValue>
 </Reference>
 <Reference URI="icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -80,7 +80,7 @@
 </Reference>
 <Reference URI="js/main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>4TvgBUekADD8TM4Stzu1WfIDsrMadZde/FolBa85fuI=</DigestValue>
+<DigestValue>tmjazrjXILw/y88ijK7HM0zxKlHjFnpFODbzZxmG/vI=</DigestValue>
 </Reference>
 <Reference URI="js/sap.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -96,11 +96,11 @@
 </Reference>
 <Reference URI="view/camera.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>VxEXdz7Gu6ESJf4pNnxaOxgz20HPchZvz4s6V24FLBc=</DigestValue>
+<DigestValue>e3F2yU6STQ351VFt5PPUpRqkh2C6rOm4PoS+HJ1wvfg=</DigestValue>
 </Reference>
 <Reference URI="view/gallery.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>m2mTiDtW5VDed1KUTY1lLz4rhq+5ytyN+2gUSUhP1sk=</DigestValue>
+<DigestValue>d44GB/qASjoDWs3SUwcbUJFHh4kliEjsgLNMgfFVs70=</DigestValue>
 </Reference>
 <Reference URI="view/home.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -119,11 +119,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-AHM554LBb1/a4PIzNpxxMeHu9xId8Y5RfNNeZQrME4ClfcBeQo1dLV4HRww8WJxS+ZsXlQznpD9W
-YWm7DTYXbB4hz8W+5WITWiKEhV0W2zMkCtYVAOY5zwpFvLaKcY7C6zEq5TM/beAd+a8Ak6ixiHOT
-lPJXWl69eXkYIYldvva4/y5xqXpZXOZb/eKkFvM9oNBeyMvFDNZRYklT96R+Xxzv5vRKtuQUyH+v
-S5bitzJbCB5CNCotwr/xMk8V4QVGgSqbFBTsp0nZq/PUK7kO53G1uuKNUDdcLhIznGNkf1WZFALm
-R0uUPb7Tj6cvpcFNjva4AIDQOnNprcU1WvUrhA==
+sNBDnPfkQpk9DG6XcauEu1kB1GTSEjPvuXi4zEQKf1O0E8lzWeF3F7ykE4rnr7aMbItcAypbQkfL
+Klv6jWHgsHRJdVxljBXarH2hRYDZPen4Zn97FJFgzK4JQJYSy7eSZtuz5z57mjVbYUX+g/QHVJ+3
+UuT2QKczZAhwT7UhMKjCpGmCu6jM9GNPgF1LRpA+lqtjSrNvJSyk6W+krX0fC2eN0UqXflfv+eNI
+v0WEjXjFpuRgGsvJHLSKQ3Gj9gs/e1PDfork9viKk4FPXNqDy0HV6ri17JDQlW52VLrpdsvCF+Ov
+tBvGprfFBSRzZBCxyrrt1mnHuASzI7L13OA4OQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

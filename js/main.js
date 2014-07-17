@@ -2,7 +2,6 @@ var GALL_THM_RQST = 'gallery-thumbnail-req';
 var GALL_THM_RESP = 'gallery-thumbnail-rsp';
 var GALL_IMG_RQST = 'gallery-image-req';
 var GALL_IMG_RESP = 'gallery-image-rsp';
-var gLatestOffset = -1; //gallery offset
 
 var reselfApp = angular.module('reselfApp', ['ngRoute']);
 reselfApp.config(['$routeProvider', function ($routeProvider) {
@@ -28,11 +27,18 @@ reselfApp.config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
+reselfApp.factory('Photos', function() {
+    var photos = {
+        list: [],
+    }
+    return photos;
+});
+
 reselfApp.factory('Setting', function() {
     var setting = {
-        delay : 10,
-        burst : 5, 
-        flash : 0
+        delay : 0,
+        burst : 1, 
+        flash : 0,
     }
     return setting;
 });
@@ -47,11 +53,11 @@ reselfApp.controller('HomeCtrl', function($scope) {
 reselfApp.controller('SettingCtrl', function($scope, Setting) {
     $scope.delay = Setting.delay;
     $scope.delays = [
-        10, 5, 2
+        0, 5, 10
     ];
     $scope.burst = Setting.burst;
     $scope.bursts = [
-        0, 2, 5
+        1, 2, 5
     ];
     $scope.flash = Setting.flash;
     $scope.flashes = [
@@ -71,44 +77,92 @@ reselfApp.controller('SettingCtrl', function($scope, Setting) {
         Setting.burst = $scope.burst;
     });
     $scope.$watch('flash', function() {
+        if ($scope.flash == 0) {
+            var reqData = {
+                'msgId' : 'reself-flash-off',
+            };
+            sapRequest(reqData, function(respData) {
+            }, function(err) {
+                console.log('Failed to get list.');
+            });
+        } else {
+            var reqData = {
+                'msgId' : 'reself-flash-on',
+            };
+            sapRequest(reqData, function(respData) {
+            }, function(err) {
+                console.log('Failed to get list.');
+            });
+        }
         Setting.flash = $scope.flash;
     });
 });
 
 
-reselfApp.controller('CameraCtrl', function($scope) {
+reselfApp.controller('CameraCtrl', function($scope, Setting) {
+    $scope.time_num = 0;
+    $scope.burstStack = Setting.burst;
+    $scope.timer = function(cb) {
+        if ($scope.time_num <= 0) {
+            cb();
+        } else {
+            setTimeout(function() {
+                $scope.time_num--;
+                $scope.$apply();
+                $scope.timer(cb);
+            }, 1000);
+        }
+    }
+    $scope.streaming = function() {
+        var reqData = {
+            'msgId' : 'reself-streaming'
+        };
+        var request = function() {
+            sapRequest(reqData, function(respData) {
+                angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
+            }, function(err) {
+                console.log('Failed to get list.');
+            });
+        };
+        setTimeout($scope.streaming, 500);
+    }
+    $scope.streaming();
     $scope.requestCapture = function () {
         if (connectionStatus) {
             var reqData = {
                 'msgId' : 'reself-capture'
             };
-            sapRequest(reqData, function(respData) {
-                console.log(respData);
-                angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
-            }, function(err) {
-                console.log('Failed to get list.');
-            });
+            var request = function() {
+                angular.element('#timer').hide();
+                sapRequest(reqData, function(respData) {
+                    // console.log(respData);
+                    angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
+                    if ($scope.burstStack > 0) {
+                        $scope.requestCapture()
+                    }
+                }, function(err) {
+                    console.log('Failed to get list.');
+                });
+            };
+            $scope.burstStack--;
+            if (Setting.delay == 0) {
+                request();
+            } else {
+                angular.element('#timer').fadeIn('slow');
+                $scope.time_num = Setting.delay;
+                $scope.timer(request);
+            }
         } else {
             toastAlert('Connection Failed');
         }
     }
 });
 
-reselfApp.controller('GalleryCtrl', function($scope) {
-    $scope.photos = [
-        {
-            name: 'dota 2',
-            image: 'img/watch.png'
-        },
-        {
-            name: 'dota 3',
-            image: 'img/watch.png'
-        },
-        {
-            name: 'dota 4',
-            image: 'img/watch.png'
-        }
-    ];
+reselfApp.controller('GalleryCtrl', function($scope, Photos) {
+    var gLatestOffset = -1; //gallery offset
+    // Photos.list = [];
+    // $scope.photos = [];
+    angular.element('.gallery').empty();
     $scope.requestGallery = function () {
         if (connectionStatus) {
            var reqData = {
@@ -117,11 +171,17 @@ reselfApp.controller('GalleryCtrl', function($scope) {
             };
             sapRequest(reqData, function(respData) {
                 var count = respData.count;
-                var list = respData.list;ze
-                $scope.photos = list;
-                console.log(list);
-
+                var list = respData.list;
+                list.forEach(function (item) {
+                    // Photos.list.push(item);
+                    angular.element('.gallery').append('<div class="photo"><img src="data:image/jpeg;base64,'+item.image+'" alt=""></div>');
+                    console.log(item.name);
+                });
+                // console.log(list);
                 gLatestOffset = list[count - 1].id;
+                // $scope.$apply(function() {
+                //     $scope.photos = Photos.list;
+                // });
             }, function(err) {
                 console.log('Failed to get list.');
                 toastAlert('Failed loading Gallery');
@@ -130,6 +190,7 @@ reselfApp.controller('GalleryCtrl', function($scope) {
             toastAlert('Connection Failed');
         }
     }
+    $scope.requestGallery();
     angular.element('.gallery-wrapper').niceScroll();
 });
 
