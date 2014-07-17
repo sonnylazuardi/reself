@@ -1,0 +1,22 @@
+<resources>
+    <application name="ReSelfConsumer" >
+        <serviceProfile
+            id="/system/reself"
+            name="ReSelf"
+            role="consumer"
+            version="2.0"
+            serviceLimit="ONE_PEERAGENT"
+            serviceTimeout="30">
+            <supportedTransports>
+                <transport type="TRANSPORT_WIFI" />
+            </supportedTransports>
+            <serviceChannel
+                id="104"
+                dataRate="low"
+                priority="low"
+                reliability= "enable">
+            </serviceChannel>
+        </serviceProfile>
+    </application>
+
+</resources>

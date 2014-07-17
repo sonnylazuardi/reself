@@ -8,6 +8,7 @@
     <title>ReSelf - Remote Selfie</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="js/sap.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.js"></script>
@@ -20,6 +21,11 @@
   <div class="contents">
   	<div style="margin:auto" class="content">
       <div ng-view></div>
+
+      <div id="popupToast" class="ui-popup ui-popup-toast">
+        <div id="popupToastMsg" class="ui-popup-content" style="overflow-y:scroll;">
+        </div>
+      </div>
   	</div>
   </div>
 </body>

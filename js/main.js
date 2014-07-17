@@ -1,3 +1,9 @@
+var GALL_THM_RQST = 'gallery-thumbnail-req';
+var GALL_THM_RESP = 'gallery-thumbnail-rsp';
+var GALL_IMG_RQST = 'gallery-image-req';
+var GALL_IMG_RESP = 'gallery-image-rsp';
+var gLatestOffset = -1; //gallery offset
+
 var reselfApp = angular.module('reselfApp', ['ngRoute']);
 reselfApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -71,31 +77,77 @@ reselfApp.controller('SettingCtrl', function($scope, Setting) {
 
 
 reselfApp.controller('CameraCtrl', function($scope) {
-
+    $scope.requestCapture = function () {
+        if (connectionStatus) {
+            var reqData = {
+                'msgId' : 'reself-capture'
+            };
+            sapRequest(reqData, function(respData) {
+                console.log(respData);
+            }, function(err) {
+                console.log('Failed to get list.');
+            });
+        } else {
+            toastAlert('Connection Failed');
+        }
+    }
 });
 
 reselfApp.controller('GalleryCtrl', function($scope) {
     $scope.photos = [
         {
-            title: 'dota 2',
-            url: 'img/watch.png'
+            name: 'dota 2',
+            image: 'img/watch.png'
         },
         {
-            title: 'dota 3',
-            url: 'img/watch.png'
+            name: 'dota 3',
+            image: 'img/watch.png'
         },
         {
-            title: 'dota 4',
-            url: 'img/watch.png'
+            name: 'dota 4',
+            image: 'img/watch.png'
         }
     ];
-    if (connectionStatus) {
-        //todo here
+    $scope.requestGallery = function () {
+        if (connectionStatus) {
+           var reqData = {
+                'msgId' : GALL_THM_RQST,
+                'offset' : gLatestOffset
+            };
+            sapRequest(reqData, function(respData) {
+                var count = respData.count;
+                var list = respData.list;ze
+                $scope.photos = list;
+                console.log(list);
+
+                gLatestOffset = list[count - 1].id;
+            }, function(err) {
+                console.log('Failed to get list.');
+                toastAlert('Failed loading Gallery');
+            });
+        } else {
+            toastAlert('Connection Failed');
+        }
     }
     angular.element('.gallery-wrapper').niceScroll();
 });
 
 var connectionStatus = false;
+var toastStack = 0;
+
+function toastAlert(msg) {
+    $('#popupToastMsg').empty();
+    $('#popupToastMsg').append(msg);
+    $('#popupToast').fadeIn('slow');
+    toastStack++;
+    setTimeout(function() {
+        toastStack--;
+        if (toastStack == 0) {
+            $('#popupToast').fadeOut('slow');
+        }
+    }, 2000);
+    console.log(msg);
+}
 
 var sapinitsuccesscb = {
     onsuccess : function() {
@@ -134,6 +186,7 @@ window.onload = function () {
         initialize();
         setTimeout(function() {
             $('.logo').fadeOut('slow');
+            // toastAlert("Hello World");
         }, 2000);
     // });
 };
