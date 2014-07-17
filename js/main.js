@@ -114,6 +114,7 @@ reselfApp.controller('CameraCtrl', function($scope, Setting) {
         }
     }
     $scope.streaming = function() {
+        console.log('streaming');
         var reqData = {
             'msgId' : 'reself-streaming'
         };
@@ -124,7 +125,7 @@ reselfApp.controller('CameraCtrl', function($scope, Setting) {
                 console.log('Failed to get list.');
             });
         };
-        setTimeout($scope.streaming, 500);
+        setTimeout($scope.streaming, 2000);
     }
     $scope.streaming();
     $scope.requestCapture = function () {
