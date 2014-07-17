@@ -113,21 +113,31 @@ reselfApp.controller('CameraCtrl', function($scope, Setting) {
             }, 1000);
         }
     }
-    $scope.streaming = function() {
-        console.log('streaming');
-        var reqData = {
-            'msgId' : 'reself-streaming'
-        };
-        var request = function() {
+    var activeStreaming = true;
+    var streaming = function() {
+        if (connectionStatus) {
+            var reqData = {
+                'msgId' : 'reself-streaming'
+            };
+            // console.log('streaming');
             sapRequest(reqData, function(respData) {
-                angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
+                // angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
+                angular.element('#img_watch').attr('src', 'data:image/jpeg;base64,'+respData.image.image);
             }, function(err) {
                 console.log('Failed to get list.');
             });
-        };
-        setTimeout($scope.streaming, 2000);
+        } else {
+            toastAlert('Connection Failed');
+        }
+        if (activeStreaming) {
+            setTimeout(streaming, 250);
+        }
     }
-    $scope.streaming();
+
+    $scope.$on('$destroy', function() {
+        activeStreaming = false;
+    });
+    
     $scope.requestCapture = function () {
         if (connectionStatus) {
             var reqData = {
@@ -137,7 +147,8 @@ reselfApp.controller('CameraCtrl', function($scope, Setting) {
                 angular.element('#timer').hide();
                 sapRequest(reqData, function(respData) {
                     // console.log(respData);
-                    angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
+                    // angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
+                    angular.element('#img_watch').attr('src', 'data:image/jpeg;base64,'+respData.image.image);
                     if ($scope.burstStack > 0) {
                         $scope.requestCapture()
                     }
@@ -157,6 +168,7 @@ reselfApp.controller('CameraCtrl', function($scope, Setting) {
             toastAlert('Connection Failed');
         }
     }
+    streaming();
 });
 
 reselfApp.controller('GalleryCtrl', function($scope, Photos) {

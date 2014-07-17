@@ -76,7 +76,7 @@
 </Reference>
 <Reference URI="js/main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>upRkUrVdjOwIzEzRIgILSRfiOPba0l9QfGNabi19jHo=</DigestValue>
+<DigestValue>PV/a5anuaFmingkNe9PL5nyF/Xy36UWQyKFZuTZ8jl0=</DigestValue>
 </Reference>
 <Reference URI="js/sap.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -92,7 +92,7 @@
 </Reference>
 <Reference URI="view/camera.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>e3F2yU6STQ351VFt5PPUpRqkh2C6rOm4PoS+HJ1wvfg=</DigestValue>
+<DigestValue>LEW/mk9PXv229H66MFYoE/Wa1qarRab+SrPgspR7prs=</DigestValue>
 </Reference>
 <Reference URI="view/gallery.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -115,11 +115,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-adzSYIQ1OQsSddFkACPyMotzKgMHJ5zPSt7mwIxwP0JcX5N5tlY2hXlsSD+KZaVP5T7izZMGT7tK
-Jj2BZ11Q6XQTzPsfXxDrrYvkaIh2fF5ydSTNJrPFFfQSnwbTawFoEaOGremRYPesU4uLud0AdpvY
-Ui6JIZDo5UqwtK9sGdgEcA4gHVExxkzqUD3Z7v1DQvX7dOnpoUn7jrbRCZoYwZPV+sytbSLVGQWa
-g16QG9nbv0pgLE6vSAt6LO8h0dE01NMk+r8jjYKCNRxpcV2lvCyozcSAvtjhHnDe0IN+gmTSbUWu
-DLfY1YtjGOUDKPZsqnagHLkS0JOfofftoEfTiQ==
+G1d/5WDS8ZcOjPVLE+5gq5duSTBZmHpK+KwWHqSJ0zwhGuLpll6Ab+YZejW7sozcLxHOt38TqkqH
+Ux3y2Oc5wCeXGmX3BhrptWAPD4GMGqmGyhBmVnLShzY0Ej8//UTpfdDjCygSOR5aPfe44jNZIr73
+vtMxF+H18Wqa+vPiUxraHeZJnbLO4w7frh59Bom/UXr0leOh2GBWIF3XnXHbiZ250bhe3Vk3MN41
+LgUv5ZHoFw+OtdWabe9m6UA/WALwFG3/psvhAYaYbujYEbDzV4rgPnOYIOJbqHuVYzO8cdhcsPpa
++CZFMaRZ4z2DF9hQY6Gc+JeOhuySNLmn5g3j5A==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
