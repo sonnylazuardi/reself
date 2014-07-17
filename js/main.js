@@ -89,8 +89,39 @@ reselfApp.controller('GalleryCtrl', function($scope) {
             url: 'img/watch.png'
         }
     ];
+    if (connectionStatus) {
+        //todo here
+    }
     angular.element('.gallery-wrapper').niceScroll();
 });
+
+var connectionStatus = false;
+
+var sapinitsuccesscb = {
+    onsuccess : function() {
+        console.log('Succeed to connect');
+        connectionStatus = true;
+        // requestList();
+    },
+    ondevicestatus : function(status) {
+        if (status == "DETACHED") {
+            toastAlert('Detached remote peer device');
+        } else if (status == "ATTACHED") {
+            reconnect();
+        }
+    }
+};
+
+function initialize() {
+    sapInit(sapinitsuccesscb, function(err) {
+        console.log(err.name);
+        if (err.name == "PEER_DISCONNECTED") {
+            toastAlert(err.message);
+        } else {
+            toastAlert('Failed to connect to service');
+        }
+    });
+}
 
 window.onload = function () {
     // add eventListener for tizenhwkey
@@ -99,8 +130,11 @@ window.onload = function () {
             tizen.application.getCurrentApplication().exit();
     });
 
-    setTimeout(function() {
-        $('.logo').fadeOut('slow');
-    }, 2000);
+    // window.addEventListener('load', function(ev) {
+        initialize();
+        setTimeout(function() {
+            $('.logo').fadeOut('slow');
+        }, 2000);
+    // });
 };
 
