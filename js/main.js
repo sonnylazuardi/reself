@@ -188,7 +188,7 @@ reselfApp.controller('GalleryCtrl', function($scope, Photos) {
                 list.forEach(function (item) {
                     // Photos.list.push(item);
                     angular.element('.gallery').append('<div class="photo"><img src="data:image/jpeg;base64,'+item.image+'" alt=""></div>');
-                    console.log(item.name);
+                    console.log(item.image);
                 });
                 // console.log(list);
                 gLatestOffset = list[count - 1].id;

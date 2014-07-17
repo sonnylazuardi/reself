@@ -119,7 +119,7 @@ reselfApp.controller('CameraCtrl', function($scope, Setting) {
             var reqData = {
                 'msgId' : 'reself-streaming'
             };
-            console.log('streaming');
+            // console.log('streaming');
             sapRequest(reqData, function(respData) {
                 // angular.element('.camera').html('<img src="data:image/jpeg;base64,' + respData.image.image + '" alt=""/>');
                 angular.element('#img_watch').attr('src', 'data:image/jpeg;base64,'+respData.image.image);
@@ -188,7 +188,7 @@ reselfApp.controller('GalleryCtrl', function($scope, Photos) {
                 list.forEach(function (item) {
                     // Photos.list.push(item);
                     angular.element('.gallery').append('<div class="photo"><img src="data:image/jpeg;base64,'+item.image+'" alt=""></div>');
-                    console.log(item.name);
+                    console.log(item.image);
                 });
                 // console.log(list);
                 gLatestOffset = list[count - 1].id;

@@ -157,17 +157,19 @@ a.btn-setting {
 	height: 320px;
 	/*overflow-y: hidden;
 	overflow-x: scroll;*/
-	overflow-x: hidden;
-	overflow-y: scroll;
+	/*overflow-x: hidden;
+	overflow-y: scroll;*/
+	overflow: scroll;
 }
 .gallery {
-	width: 320px;
+	max-width: 320px;
 	/*min-width: 320px;*/
 }
 .gallery .photo {
 	height: 320px;
 	width: 320px;
-	display: inline-block;
+	/*display: inline-block;*/
+	float: left;
 }
 
 .gallery .photo img {
