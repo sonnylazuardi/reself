@@ -35,7 +35,7 @@ var gChannel = 104;
 var gAgent = null;
 var gUnavailable = false;
 
-var PROVIDER_APP_NAME = 'ReSelf';
+var PROVIDER_APP_NAME = 'ReSelfProvider';
 
 var gCurrentRequest = null;
 

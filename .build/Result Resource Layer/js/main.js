@@ -152,6 +152,7 @@ function toastAlert(msg) {
 var sapinitsuccesscb = {
     onsuccess : function() {
         console.log('Succeed to connect');
+        toastAlert('Connection established');
         connectionStatus = true;
         // requestList();
     },
