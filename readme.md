@@ -3,4 +3,4 @@ Reself
 
 remote selfie gear application
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/CZF1PC-gD3I" frameborder="0" allowfullscreen></iframe>
+[![ReSelf](http://img.youtube.com/vi/CZF1PC-gD3I/0.jpg)](http://www.youtube.com/watch?v=CZF1PC-gD3I)
