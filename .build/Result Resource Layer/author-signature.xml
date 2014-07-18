@@ -12,7 +12,7 @@
 </Reference>
 <Reference URI="icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>vPjxjOppORd6hn9Bw4sh06gqtDoJzoFbV/8e9FyIdvk=</DigestValue>
+<DigestValue>ASjReubJl8+pc5DsR8nHqNu8fp3wrVApi4ujJmT1CCM=</DigestValue>
 </Reference>
 <Reference URI="img/back.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -115,11 +115,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Hw5gZUEORQ+eMdNL9WyKhevsrL9Rg01UlkPJ/8dVaEqMUz8cYWf6Wr/WQHuPkhHJhxRf7cvhmsAQ
-DKYtunB11I4TDrFjD599MDZE4trVCQ+GUKnxgbSzI8afdc3KSpQ8JjKTgJZddVfL9FL9baSVbxIM
-VB6Wb3reb5o/oUqRoMU2k0clztUJnCtj+wiAgYG8vbV9hH6mz+csqQN8KNx+ry8mVbPZlndIf5ri
-plIYmKLbBYKb112NSXFh0UWDoRIUotEKBtySikPcUgRYAvGBxpr6N4acCiPDMom1G6Mb6FTAIX3t
-pw6D1XvV8HGIljglmfTBXG5xjw0SSoy8nuhjBw==
+mYwk8NejrrfAKZCmKwa42Lk9G23hwC72lTFHuKf+HXVeuqKEQbo2ufvoxG683GT9SQW/8yIqTUa0
+kFonOtOQUHulbVcj2ALGdgAL0bnBMRExjx9AN+WFbBA13WuXhdHI9FWEQ3CQxKhyCD0TH5SlCyPc
+O/gX0K2zGbKGF9/pHSA6WXt1inivsokh+Tf3kX3kNx8AcRdyM6WFRfbml/12lidkMpn0lEKh5R1D
+pCdUrb0oVNMs3agh6Q6BhsA5k9EnPaN/TqyF4v937FbqbTV34dGcQ9Rhy81ep0U6KHA43/WtlF17
+k89vb90Eo0CrmTOnk5ppxydQ8wpcc5KhREFSgA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

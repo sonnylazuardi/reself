@@ -2,7 +2,5 @@
 #add
 #modify
 res/wgt/author-signature.xml
-res/wgt/css/style.css
-res/wgt/js/main.js
+res/wgt/icon.png
 res/wgt/signature1.xml
-res/wgt/view/gallery.html
